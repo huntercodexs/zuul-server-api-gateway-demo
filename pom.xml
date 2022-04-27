@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.huntercodexs.eurekaservicediscoverydemo</groupId>
+    <groupId>com.huntercodexs.zuulserverapigatewaydemo</groupId>
     <artifactId>ZUUL-SERVER-API-GATEWAY-DEMO</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>

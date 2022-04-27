@@ -1,4 +1,4 @@
-package com.huntercodexs.eurekaservicediscoverydemo.filters;
+package com.huntercodexs.zuulserverapigatewaydemo.filters;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
@@ -7,16 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 @Component
-public class ResponseFilter extends ZuulFilter {
+public class LogFilter extends ZuulFilter {
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public String filterType() {
-        return "post";
+        return "pre";
     }
 
     @Override
@@ -26,16 +26,16 @@ public class ResponseFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return false;
+        return true;
     }
 
     @Override
     public Object run() throws ZuulException {
 
-        HttpServletResponse response = RequestContext.getCurrentContext().getResponse();
-        response.setStatus(400);
-        log.info(" ZUUL Exception {} ", response.getStatus());
+        HttpServletRequest req = RequestContext.getCurrentContext().getRequest();
+        log.info("**** ZUUL Exception : {} " , req.getRequestURL());
 
         return null;
+
     }
 }

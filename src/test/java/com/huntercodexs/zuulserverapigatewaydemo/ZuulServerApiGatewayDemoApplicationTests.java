@@ -1,4 +1,4 @@
-package com.huntercodexs.eurekaservicediscoverydemo;
+package com.huntercodexs.zuulserverapigatewaydemo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
